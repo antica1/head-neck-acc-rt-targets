@@ -1,50 +1,94 @@
-# ACC RT Target Delineation Skill — 部署包
+# ACC RT Target Delineation Skill — Deployment Guide
 
-## 文件说明
+## File Overview
 
-| 文件 | 用途 |
-|------|------|
-| `SKILL.md` | 主 Skill 文件（Hermes Agent / Claude Code 通用格式） |
-| `README.md` | 本说明文件 |
+| File | Purpose |
+|------|---------|
+| `SKILL.md` | Main skill file (compatible with both Hermes Agent and Claude Code) |
+| `README.md` | This guide |
 
-## 一、在 Hermes Agent 上部署
+---
+
+## 一、Install on Hermes Agent
+
+### Method 1 — One-line install via URL (recommended)
 
 ```bash
-# 复制到 Hermes skills 目录
-mkdir -p ~/AppData/Local/hermes/skills/research/adenoid-cystic-carcinoma-rt-targets
-cp SKILL.md ~/AppData/Local/hermes/skills/research/adenoid-cystic-carcinoma-rt-targets/
+hermes skills install https://raw.githubusercontent.com/antica1/head-neck-acc-rt-targets/master/SKILL.md
+```
 
-# 验证
+### Method 2 — Tap the GitHub repo as skill source
+
+```bash
+hermes skills tap add https://github.com/antica1/head-neck-acc-rt-targets
+hermes skills install adenoid-cystic-carcinoma-rt-targets
+```
+
+### Method 3 — Manual copy
+
+```bash
+mkdir -p ~/.hermes/skills/research/adenoid-cystic-carcinoma-rt-targets
+curl -o ~/.hermes/skills/research/adenoid-cystic-carcinoma-rt-targets/SKILL.md \
+  https://raw.githubusercontent.com/antica1/head-neck-acc-rt-targets/master/SKILL.md
+```
+
+### Verify installation
+
+```bash
 hermes skills list | grep adenoid
 ```
 
-## 二、在 Claude Code (Claude Desktop) 上部署
+---
 
-Claude Code 使用 skills-plugin 目录：
+## 二、Search & Trigger Keywords
+
+Once installed, the skill activates automatically when these terms appear in conversation:
+
+| Language | Trigger Keywords |
+|----------|-----------------|
+| English | `adenoid cystic carcinoma`, `ACC target delineation`, `ACC radiotherapy`, `trigeminal nerve pathway`, `perineural invasion RT`, `cavernous sinus ACC` |
+| Chinese | `腺样囊性癌`, `ACC 靶区`, `三叉神经通路`, `神经侵犯放疗`, `海绵窦照射` |
+
+**Manual load**: `/skill adenoid-cystic-carcinoma-rt-targets`
+
+---
+
+## 三、Install on Claude Code (Claude Desktop)
+
+Copy the `SKILL.md` into Claude Code's skills-plugin directory:
 
 ```bash
-# 复制到 Claude skills 目录
-mkdir -p ~/AppData/Local/Claude-3p/local-agent-mode-sessions/skills-plugin/00000000-0000-4000-8000-000000000001/<your-user-id>/skills/adenoid-cystic-carcinoma-rt-targets
-cp SKILL.md ~/AppData/Local/Claude-3p/local-agent-mode-sessions/skills-plugin/00000000-0000-4000-8000-000000000001/<your-user-id>/skills/adenoid-cystic-carcinoma-rt-targets/
+# Locate Claude's skills directory (varies by installation)
+# Typical path on Windows:
+cp SKILL.md %LOCALAPPDATA%/Claude-3p/local-agent-mode-sessions/skills-plugin/<user-uuid>/skills/adenoid-cystic-carcinoma-rt-targets/
+
+# On macOS/Linux:
+cp SKILL.md ~/.claude/skills/adenoid-cystic-carcinoma-rt-targets/
 ```
 
-或者通过 Claude Code 的内置 skill 安装命令（如果支持）。
+The same trigger keywords apply.
 
-## 三、加载后使用
+---
 
-在 Hermes Agent 或 Claude Code 中，使用以下方式触发此 Skill：
+## 四、For Developers
 
-**自动触发关键词**：
-- "腺样囊性癌"
-- "ACC 靶区"
-- "adenoid cystic carcinoma radiotherapy"
-- "三叉神经通路"
-- "神经侵犯 放疗"
+### Skill Metadata
 
-**手动加载**：
-- Hermes Agent: `/skill adenoid-cystic-carcinoma-rt-targets`
-- Claude Code: 提及上述关键词自动加载
+```yaml
+name: adenoid-cystic-carcinoma-rt-targets
+version: 1.0.0
+author: Zhu Guopei / Shanghai Ninth People's Hospital
+license: MIT
+```
 
-## 依赖
+### To contribute
 
-此 Skill 是自包含的，不依赖其他 Skill。但如需完整的头颈靶区勾画体系，可同时加载 `head-neck-target-delineation` Skill。
+1. Fork this repository
+2. Edit `SKILL.md`
+3. Submit a pull request
+
+### Contact
+
+Zhu Guopei, MD — antica@gmail.com  
+Department of Radiation Oncology, Shanghai Ninth People's Hospital  
+Shanghai Jiao Tong University School of Medicine
