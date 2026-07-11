@@ -205,6 +205,55 @@ ACC Post-Op Neck Irradiation Decision
 | **Tier 3 (no PNI)** | Prophylactic along V3 to **skull base** → 54 Gy |
 | **Neck nodes** | **No prophylactic neck RT** (unless solid type ACC) |
 
+### 4.1B Parotid ACC — Facial Nerve (CN VII) Management
+
+While ACC strongly favors sensory trigeminal branches over motor nerves, the facial nerve passes directly through the parotid gland and may show radiographic thickening on MRI. **Not all thickened facial nerves are tumor-involved.** The management of the facial nerve depends on the level of evidence for involvement, assessed across three domains:
+
+| Evidence Level | Pathology | Symptoms | MRI |
+|---------------|-----------|----------|-----|
+| **Confirmed involvement** | Tumor in nerve on pathology | Facial palsy present | Nerve thickening on MRI |
+| **Suspicious** | Not definitive | No palsy | Thickening present |
+
+#### When facial nerve involvement IS confirmed (pathology + palsy + MRI)
+
+The vertical (descending) segment of CN VII within the stylomastoid foramen must receive **high-dose irradiation (60-66 Gy)**:
+
+```
+Stylomastoid foramen
+        │
+        ▼
+  Vertical segment (descending in temporal bone)
+        │
+        ├── Upper vertical segment (near stylomastoid foramen)
+        │     → Surgically inaccessible — high risk of residual
+        │     → **60-66 Gy radical dose**
+        │
+        └── Lower vertical segment
+              → Include in high-dose CTV
+```
+
+**Rationale**: The upper vertical segment of CN VII lies within the bony stylomastoid canal immediately below the skull base. This area is extremely difficult to clear surgically during parotidectomy. Even with "nerve-sparing" techniques, microscopic tumor within the canal is likely.
+
+#### When facial nerve involvement is NOT confirmed
+
+| Segment | Action | Dose | Rationale |
+|---------|--------|------|-----------|
+| **Vertical segment (stylomastoid)** | **Prophylactic coverage** | 50-54 Gy | The proximal vertical segment is still a potential route but unconfirmed |
+| **Horizontal (intratemporal) segment** | **DO NOT irradiate** | — | Irradiating the horizontal segment within the petrous temporal bone would significantly increase dose to the **cochlea and vestibular apparatus** → sensorineural hearing loss |
+
+**Key distinction from V3 pathway**: The trigeminal pathway (V3 → foramen ovale → cavernous sinus) is the primary route of ACC perineural spread from the parotid. The facial nerve pathway (CN VII → stylomastoid foramen → internal acoustic meatus) is a secondary concern that requires rigorous evidence before escalating the CTV, because the cost of over-coverage is inner ear toxicity.
+
+#### Contouring guidance —Stylomastoid vertical segment
+
+| Boundary | Definition |
+|----------|-----------|
+| Entry point | Stylomastoid foramen (between styloid process and mastoid tip) |
+| Course | Descends vertically approximately 10-15 mm within the temporal bone |
+| CTV width | 5-8 mm around the nerve within the canal; 3-5 mm within the bony canal |
+| OAR proximity | Cochlea lies anterior and medial — **verify cochlear Dmean ≤ 45 Gy** |
+
+| **Neck nodes** | **No prophylactic neck RT** (unless solid type ACC) |
+
 ### 4.2 Submandibular / Sublingual Gland ACC
 
 | Component | Target |
