@@ -1,7 +1,7 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.0.0
+version: 1.1.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
 ---
@@ -156,10 +156,31 @@ ACC Post-Op Neck Irradiation Decision
     │              │         │
     └──────┬───────┘         │
            │                 │
-    Irradiate          DO NOT irradiate
-    ipsilateral        prophylactic neck
-    Ib + II + III
+           │           DO NOT irradiate
+           │           prophylactic neck
+           │
+    ┌──────┴──────┐
+    │             │
+  同侧 LN-     同侧 LN+
+  (cN0/pN0)   (pN1+)
+    │             │
+    │        ┌────┴────┐
+    │        │         │
+    │   口底/舌下腺  其他口裂以下
+    │   近中线原发    部位
+    │        │         │
+    │        │         │
+    └──┬─────┘    ┌────┴────┐
+       │          │         │
+  照同侧        照同侧    照双侧
+  Ib+II+III   Ib+II+III  Ib+II+III
+  （低危，     （标危）   （高危——
+   无LN+）              口底中线+
+                        已证转移=
+                        对侧风险）
 ```
+
+> **新增规则：口底/舌下腺 + 实体型 + 同侧 LN+ → 双侧颈照射。** 舌下腺位于口底，口底是双侧淋巴引流的枢纽通道。实体型已证明具有转移能力——一旦同侧 LN+，对侧颈淋巴站通过口底血管网处于高危。此时仅照同侧是不够的。
 
 ### 2.5 Salivary Gland-Specific Considerations
 
@@ -167,7 +188,7 @@ ACC Post-Op Neck Irradiation Decision
 |-------------|------------------------|-----------|
 | **Parotid gland** | No prophylactic neck RT (unless solid type) | Lymphatic drainage from parotid is minimal |
 | **Submandibular gland** | Consider prophylactic Ib + II (even non-solid) | This is at/below the oral fissure level |
-| **Sublingual gland** | Prophylactic Ib + II (below oral fissure) | Rich lymphatic drainage |
+| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway. Midline proximity + proven metastatic capacity = contralateral nodes at risk. |
 | **Hard palate** | No prophylactic neck RT (unless solid type) | Above oral fissure, minimal lymphatic spread |
 | **Minor salivary glands (buccal, palate)** | No prophylactic neck RT (unless solid type) | Above oral fissure |
 
