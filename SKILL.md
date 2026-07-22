@@ -210,6 +210,9 @@ ACC Post-Op Neck Irradiation Decision
 
 ### 3.1 Postoperative Dose Levels
 
+
+> **SBRT 后的常规分割补量**：如 ACC 首程采用 SBRT（5.5 Gy×5fx 等），需要后续常规分割补足根治剂量时，见 `reirradiation-plan-recommend` Skill §五"分割补量"。核心公式：累积 EQD2₁₀ = EQD2₁₀(SBRT) + EQD2₁₀(常规)，目标总量 ≥60 Gy。
+
 | Risk Category | Dose | Fractionation | Indication |
 |--------------|------|---------------|------------|
 | **High-risk (R1/R2 resection, Tier 1 PNI)** | 66 Gy | 2.0 Gy × 33 fx | Named nerve invasion, positive margins |
