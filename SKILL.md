@@ -1,7 +1,7 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.1.0
+version: 1.2.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
 ---
@@ -93,6 +93,18 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 │                                                     │
 └─────────────────────────────────────────────────────┘
 ```
+
+### 1.2B Contralateral Nerve Pathway Coverage — The Midline Rule
+
+> **腭部 ACC 跨中线/近中线时，对侧腭大孔→翼腭窝→圆孔必须预防照射。** 与颈淋巴结的双侧规则逻辑一致——口底/腭部的神经血管网在近中线处双侧互通。
+
+| 情形 | 同侧 | 对侧 |
+|------|------|------|
+| **硬腭偏一侧**（距中线 ≥1 cm）| 腭大孔→翼腭窝→圆孔（按 Tier 1/2/3 决定高度） | 不照 |
+| **近中线/跨中线 + PNI+** | 同上 | **至少照到圆孔开口**（Tier 2 级高度）——预防量 54 Gy |
+| **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1 级高度） | 按近中线规则，对侧仍至少到圆孔开口 |
+
+> **解剖依据**：硬腭黏膜下双侧腭大孔的神经血管在切牙孔/腭中缝处有交通支。肿瘤近中线→可通过黏膜下神经丛扩散至对侧腭大神经→对侧翼腭窝→对侧 V2→圆孔。仅照同侧会遗漏这一扩散路径。
 
 ### 1.3 Anatomical Implementation: The Trigeminal Nerve Pathway
 
