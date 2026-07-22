@@ -1,6 +1,6 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
-description: "Postoperative radiotherapy target volume delineation for adenoid cystic carcinoma of the head and neck, emphasizing sensory nerve pathway coverage and individualized neck node irradiation strategies."
+description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
 version: 1.0.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
@@ -327,25 +327,25 @@ This skill is maintained as part of the Hermes Agent skills ecosystem, designed 
 
 ## 附：靶区规划摘要（可复制粘贴入首次病程录）
 
-> 治疗前写入住院病史"诊疗计划"。不含 OAR 限量。含病理分期、PORT 指征、降级依据。
+> 治疗前写入住院病史"诊疗计划"。只列实际使用的 CTV 层级，每层附理由。豁免区和加量区均说明原因。
 
 ```
 ═══════════════════════════════
   放疗靶区规划
 ═══════════════════════════════
-诊断：______  pT__N__M__（ypT__N__M__）
+诊断：______  pT__N__M__（AJCC 第 9 版）
+分期判断：______（为何 T__ 而非 T__：______）
 手术：______
-PORT 指征：______（PNI+ / 切缘近 / 高级别 / 淋巴结+）
+PORT 指征：______
 降级依据：______（如适用）
 
 方案：□ 术后 PORT  □ 根治性 RT   ___ Gy / ___ fx
 
-CTV66：______（R1/R2 区域推量）
-CTV60：______（手术床、原阳性 LN 站）
-CTV54：______（预防区）
-面神经径路：□ 垂直段 ___ Gy  □ 水平段豁免
-豁免：______
+CTV___：______（___ Gy — 理由：______）
+加量：______  ___ Gy（理由：□R1/R2  □ENE+  □手术不易切净  □T4/N3 临近关键结构）
+豁免：______（理由：______）
 
 主治：______  日期：______
 ═══════════════════════════════
-``` Department of Radiation Oncology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine. It is intended for educational and clinical reference purposes and should be used in conjunction with individual patient assessment and institutional guidelines.*
+
+注：四类加量指征：①R1/R2切缘 ②ENE+淋巴结 ③手术不易切净区(茎乳孔/腮腺深叶/颅底/翼腭窝/颏结节/前上门牙-鼻底硬腭) ④不手术T4/T4b临近颅底/脑膜/眼眶/颈动脉。病理切缘阴性不等于肿瘤床绝对安全——手术记录中未描述但肿瘤曾临近上述区域时仍需考虑加量。
