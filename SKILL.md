@@ -1,7 +1,7 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.3.0
+version: 1.4.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
 nmetadata:
@@ -19,6 +19,8 @@ nmetadata:
       - 腭部ACC
       - 筛窦ACC
       - 鼻腔ACC
+      - 鼻咽ACC
+      - 鼻咽腺样囊性癌
       - adenoid cystic
       - PNI
       - 神经侵犯
@@ -42,7 +44,9 @@ nmetadata:
 | 2 | 三叉神经三级追踪：命名神经→全海绵窦 / 小PNI→海绵窦下界 / 无PNI→颅底 | 术后病理PNI分级 |
 | 3 | 面神经垂直段(茎乳孔)：确认侵犯→60-66Gy / 未确认→50-54Gy预防+水平段不照 | 腮腺ACC面神经管理 |
 | 4 | 实体型+口裂以下原发+同侧LN+→双侧颈 | 口底/舌下腺ACC高风险 |
+| 4b | **实体型+口裂以上原发→仍建议同侧颈预防（Ib+II+III，50-54 Gy）** | 实体型已证明转移能力，不受口裂位置限制 |
 | 5 | 腭部近中线+PNI+→对侧腭大孔→翼腭窝→圆孔 | 硬腭/软腭ACC跨中线 |
+| 5b | **鼻咽近中线+PNI+→对侧V2通路至少到圆孔开口（54 Gy预防）** | 鼻咽=中线结构，近中线PNI+不可仅照同侧 |
 | 6 | 翼腭窝增宽/神经症状→同侧圆孔内+海绵窦底 | 影像学翼腭窝异常 |
 | 7 | R0+足够手术→不常规加量至66Gy（60Gy即可） | ACC R0切除 |
 | 8 | 肺转移不降局部PORT强度 | ACC伴肺转移 |
@@ -157,6 +161,20 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 
 > **解剖依据**：硬腭黏膜下双侧腭大孔的神经血管在切牙孔/腭中缝处有交通支。肿瘤近中线→可通过黏膜下神经丛扩散至对侧腭大神经→对侧翼腭窝→对侧 V2→圆孔。仅照同侧会遗漏这一扩散路径。
 
+### 1.2C Nasopharyngeal ACC — Bilateral Nerve Pathway Rule
+
+> **鼻咽是中线结构。** 鼻咽顶壁/后壁 ACC 近中线时，即使无明确对侧侵犯证据，PNI+ 也意味着肿瘤已进入双侧 V2 的交通神经丛。
+
+| 情形 | 同侧 V2 通路 | 对侧 V2 通路 |
+|------|------------|------------|
+| **鼻咽偏一侧**（距中线 ≥1 cm）+ 无 PNI | Tier 2/3（按病理分级）| 不照 |
+| **鼻咽近中线/跨中线 + PNI+** | 按 Tier 1/2 追踪至海绵窦 | **至少到圆孔开口**——预防量 54 Gy |
+| **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1） | 对侧至少到圆孔开口（54 Gy）——可双侧海绵窦均需考虑 |
+
+> **解剖依据**：鼻咽顶壁黏膜下的双侧咽神经丛（来自 V2 的咽支）在中线处有丰富的交通支。鼻咽黏膜下淋巴-神经丛是 NPC 双侧扩散的解剖基础——同样的神经通路对 ACC 的双侧 PNI 扩散同样适用。仅照同侧 V2 通路相当于将 NP 当偏侧器官处理——这在解剖学上是错误的。
+
+> **剂量梯度**：同侧 V2 通路由病理 Tier 决定剂量（60-66 Gy），对侧 V2 通路原则上可以比同侧低一档（54 Gy）。但如果术前 MRI 已见对侧翼腭窝异常或对侧圆孔可疑 → 对侧也不应低于 60 Gy。
+
 ### 1.3 Anatomical Implementation: The Trigeminal Nerve Pathway
 
 The CTV should follow the course of the relevant trigeminal branches from the primary site to the target level (cavernous sinus / skull base). Key anatomical reference points:
@@ -189,9 +207,11 @@ The following situations warrant prophylactic ipsilateral neck irradiation (Ib +
 
 | Indication | Rationale |
 |-----------|-----------|
-| **Solid-type ACC histology** | Solid subtype has higher aggression and metastatic potential |
+| **Solid-type ACC histology** | Solid subtype has higher aggression and metastatic potential — **irrespective of primary site (above or below oral fissure)** |
 | **Primary site BELOW the oral fissure** (tongue, floor of mouth, submandibular gland, sublingual gland) | These sites have richer lymphatic drainage |
 | **Known pathological lymph node involvement** | Standard surgical bed coverage |
+
+> **新增（v1.4.0）**：实体型 ACC 口裂以上原发（鼻咽、鼻腔、筛窦、硬腭、腮腺）仍建议同侧 Ib+II+III 预防照射 50-54 Gy。实体型已证明转移能力——口裂位置是 SCC 的风险分层工具，对 ACC 不适用。
 
 ### 2.3 When NOT to Irradiate the Neck
 
@@ -216,12 +236,19 @@ ACC Post-Op Neck Irradiation Decision
     │         Below oral  Above oral
     │          fissure     fissure
     │              │         │
-    │              │         │
-    └──────┬───────┘         │
-           │                 │
-           │           DO NOT irradiate
-           │           prophylactic neck
-           │
+    │              │    DO NOT irradiate
+    │              │    prophylactic neck
+    │              │
+    ┌──┴──────────────┐
+    │                 │
+  Below oral      Above oral
+   fissure          fissure
+    │                 │
+    │            ⚠️ 照同侧 Ib+II+III
+    │            （50-54 Gy）
+    │            实体型已证明转移能力
+    │            → 不受口裂位置限制
+    │
     ┌──────┴──────┐
     │             │
   同侧 LN-     同侧 LN+
@@ -249,9 +276,10 @@ ACC Post-Op Neck Irradiation Decision
 
 | Primary Site | Typical Neck Management | Rationale |
 |-------------|------------------------|-----------|
-| **Parotid gland** | No prophylactic neck RT (unless solid type) | Lymphatic drainage from parotid is minimal |
+| **Parotid gland** | **No prophylactic neck RT** (unless solid type — solid type always warrants neck RT irrespective of site) | Lymphatic drainage from parotid is minimal |
 | **Submandibular gland** | Consider prophylactic Ib + II (even non-solid) | This is at/below the oral fissure level |
-| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway. Midline proximity + proven metastatic capacity = contralateral nodes at risk. |
+| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway |
+| **Nasopharynx** | **No prophylactic neck RT** (unless solid type). PNI+ → bilateral V2 nerve pathway (§1.2C). | NP is above oral fissure + rich Waldeyer drainage → but ACC lymphatic tropism is low |
 | **Hard palate** | No prophylactic neck RT (unless solid type) | Above oral fissure, minimal lymphatic spread |
 | **Minor salivary glands (buccal, palate)** | No prophylactic neck RT (unless solid type) | Above oral fissure |
 
