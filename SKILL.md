@@ -293,18 +293,23 @@ Stylomastoid foramen
 
 #### V2 Pathway Dose Stratification — the Foramen Rotundum "Gate"
 
-The foramen rotundum is the anatomical gateway between the extracranial and intracranial V2 segments. Dose should be stratified at this boundary:
+The foramen rotundum is the anatomical gateway between the extracranial and intracranial V2 segments. However, the segment from the foramen rotundum to the inferior border of the cavernous sinus is extremely short — typically **1-2 CT slices**. Creating a separate dose level for this tiny segment adds operational complexity with negligible dosimetric benefit.
+
+**Practical rule**:
 
 ```
-硬腭 → 腭大孔/腭小孔 → 翼腭窝 → 圆孔      60 Gy  (extracranial = surgical corridor extension)
-═══════════════ Foramen Rotundum ═══════════
-圆孔 → 海绵窦下界                           54 Gy  (intracranial = prophylactic Tier 2/3)
+硬腭 → 翼腭窝 → 圆孔 → 海绵窦下界      60 Gy  (全部颅外+圆孔短段)
+═══════════ Cavernous Sinus ═══════════
+海绵窦内（如需进入）                     54 Gy  (仅当 Tier 1 需深入窦内时)
 ```
 
-| Segment | Dose | Rationale |
-|---------|:--:|------|
-| Hard palate → pterygopalatine fossa → foramen rotundum | **60 Gy** | Direct extension of surgical bed — this is the proximal V2 pathway |
-| Foramen rotundum → inferior border of cavernous sinus | **54 Gy** | Intracranial prophylactic — Tier 2 if clinical risk factors, Tier 3 if purely prophylactic |
+| Scenario | V2 extracranial + foraminal segment | Cavernous sinus proper |
+|----------|:--:|:--:|
+| **Tier 3** (no PNI, prophylactic) | 54 Gy to skull base | Not entered |
+| **Tier 2** (clinical risk, stop at sinus border) | **60 Gy** | Not entered — stop at inferior border |
+| **Tier 1** (named nerve invasion) | 60 Gy | **60 Gy** to entire cavernous sinus |
+
+> **Why not split at the foramen rotundum?** The foraminal-intracranial transition is ~3-5 mm — splitting a separate CTV-54 for 1-2 slices creates a meaningless dose gradient that IMRT cannot meaningfully resolve. When Tier 2 requires stopping at the cavernous sinus border, simply carry the 60 Gy volume to that border — there is no dosimetric penalty for including the foraminal opening in the 60 Gy volume.
 
 > **Nasal cavity mucosal margin** must be included in CTV-60 for maxillectomy cases: the surgical cavity communicates directly with the nasal cavity — the mucosal cut edge is a surgical boundary. Include the ipsilateral nasal lateral wall mucosal margin + 1 cm.
 
