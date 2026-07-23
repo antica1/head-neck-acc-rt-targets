@@ -29,6 +29,7 @@ nmetadata:
       - 海绵窦
       - 三叉神经
       - 翼腭窝
+    related_skills: [orbital-tumor-rt-targets, head-neck-dvh-plan-review, port-oral-postop]
 ---
 
 # 头颈部腺样囊性癌术后放疗靶区勾画指南
