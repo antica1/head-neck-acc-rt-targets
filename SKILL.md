@@ -14,6 +14,14 @@ Adenoid cystic carcinoma (ACC) of the head and neck is a rare salivary gland mal
 
 This guide is based on clinical experience at Shanghai Ninth People's Hospital and published work in *Radiotherapy & Oncology* and *Chinese Journal of Radiation Oncology*, combined with general consensus guidelines (ICRU 83/91, QUANTEC, RTOG/EORTC contouring atlases).
 
+---
+
+## ⚠️ 影像依赖声明
+
+> **本 Skill 中的神经通路靶区边界均为基于解剖的"默认建议"。实际勾画以术前 MRI（尤其 T1+C 增强）为准——神经周围扩散的影像学证据（神经增粗、强化、圆孔/卵圆孔异常）直接决定追踪高度。AI 无法读片——报告中边界须以"建议 + 依据 + 请确认"格式输出。** 若术前 MRI 未提供神经周围侵犯的具体描述→按病理 Tier 决定追踪高度，标注"影像证据待确认"。
+
+---
+
 ## Core Principle: ACC Postoperative RT is NOT SCC PORT
 
 | Feature | Squamous Cell Carcinoma | Adenoid Cystic Carcinoma |
