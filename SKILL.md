@@ -15,6 +15,9 @@ Adenoid cystic carcinoma (ACC) of the head and neck is a rare salivary gland mal
 This guide is based on clinical experience at Shanghai Ninth People's Hospital and published work in *Radiotherapy & Oncology* and *Chinese Journal of Radiation Oncology*, combined with general consensus guidelines (ICRU 83/91, QUANTEC, RTOG/EORTC contouring atlases).
 
 ---
+n## 📄 报告输出——双版本
+> **出报告前必须询问：精简版（~1页，仅靶区+剂量）还是完整版（含推理+循证）。模板见 port-oral-postop。**
+
 
 ## ⚠️ 影像依赖声明
 
