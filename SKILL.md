@@ -1,9 +1,12 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
-description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.2.0
+description: "Postoperative radiotherapy target volume delineation for adenoid cystic carcinoma of the head and neck, emphasizing sensory nerve pathway coverage and individualized neck node irradiation strategies."
+version: 1.1.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
+nmetadata:
+  hermes:
+    tags: [head-neck, radiotherapy, target-delineation]
 ---
 
 # 头颈部腺样囊性癌术后放疗靶区勾画指南
@@ -94,18 +97,6 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 └─────────────────────────────────────────────────────┘
 ```
 
-### 1.2B Contralateral Nerve Pathway Coverage — The Midline Rule
-
-> **腭部 ACC 跨中线/近中线时，对侧腭大孔→翼腭窝→圆孔必须预防照射。** 与颈淋巴结的双侧规则逻辑一致——口底/腭部的神经血管网在近中线处双侧互通。
-
-| 情形 | 同侧 | 对侧 |
-|------|------|------|
-| **硬腭偏一侧**（距中线 ≥1 cm）| 腭大孔→翼腭窝→圆孔（按 Tier 1/2/3 决定高度） | 不照 |
-| **近中线/跨中线 + PNI+** | 同上 | **至少照到圆孔开口**（Tier 2 级高度）——预防量 54 Gy |
-| **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1 级高度） | 按近中线规则，对侧仍至少到圆孔开口 |
-
-> **解剖依据**：硬腭黏膜下双侧腭大孔的神经血管在切牙孔/腭中缝处有交通支。肿瘤近中线→可通过黏膜下神经丛扩散至对侧腭大神经→对侧翼腭窝→对侧 V2→圆孔。仅照同侧会遗漏这一扩散路径。
-
 ### 1.3 Anatomical Implementation: The Trigeminal Nerve Pathway
 
 The CTV should follow the course of the relevant trigeminal branches from the primary site to the target level (cavernous sinus / skull base). Key anatomical reference points:
@@ -168,31 +159,10 @@ ACC Post-Op Neck Irradiation Decision
     │              │         │
     └──────┬───────┘         │
            │                 │
-           │           DO NOT irradiate
-           │           prophylactic neck
-           │
-    ┌──────┴──────┐
-    │             │
-  同侧 LN-     同侧 LN+
-  (cN0/pN0)   (pN1+)
-    │             │
-    │        ┌────┴────┐
-    │        │         │
-    │   口底/舌下腺  其他口裂以下
-    │   近中线原发    部位
-    │        │         │
-    │        │         │
-    └──┬─────┘    ┌────┴────┐
-       │          │         │
-  照同侧        照同侧    照双侧
-  Ib+II+III   Ib+II+III  Ib+II+III
-  （低危，     （标危）   （高危——
-   无LN+）              口底中线+
-                        已证转移=
-                        对侧风险）
+    Irradiate          DO NOT irradiate
+    ipsilateral        prophylactic neck
+    Ib + II + III
 ```
-
-> **新增规则：口底/舌下腺 + 实体型 + 同侧 LN+ → 双侧颈照射。** 舌下腺位于口底，口底是双侧淋巴引流的枢纽通道。实体型已证明具有转移能力——一旦同侧 LN+，对侧颈淋巴站通过口底血管网处于高危。此时仅照同侧是不够的。
 
 ### 2.5 Salivary Gland-Specific Considerations
 
@@ -200,7 +170,7 @@ ACC Post-Op Neck Irradiation Decision
 |-------------|------------------------|-----------|
 | **Parotid gland** | No prophylactic neck RT (unless solid type) | Lymphatic drainage from parotid is minimal |
 | **Submandibular gland** | Consider prophylactic Ib + II (even non-solid) | This is at/below the oral fissure level |
-| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway. Midline proximity + proven metastatic capacity = contralateral nodes at risk. |
+| **Sublingual gland** | Prophylactic Ib + II (below oral fissure) | Rich lymphatic drainage |
 | **Hard palate** | No prophylactic neck RT (unless solid type) | Above oral fissure, minimal lymphatic spread |
 | **Minor salivary glands (buccal, palate)** | No prophylactic neck RT (unless solid type) | Above oral fissure |
 
@@ -209,9 +179,6 @@ ACC Post-Op Neck Irradiation Decision
 ## Section 3 — Dose and Fractionation for ACC
 
 ### 3.1 Postoperative Dose Levels
-
-
-> **SBRT 后的常规分割补量**：如 ACC 首程采用 SBRT（5.5 Gy×5fx 等），需要后续常规分割补足根治剂量时，见 `reirradiation-plan-recommend` Skill §五"分割补量"。核心公式：累积 EQD2₁₀ = EQD2₁₀(SBRT) + EQD2₁₀(常规)，目标总量 ≥60 Gy。
 
 | Risk Category | Dose | Fractionation | Indication |
 |--------------|------|---------------|------------|
@@ -226,6 +193,26 @@ ACC Post-Op Neck Irradiation Decision
 - ACC is moderately radiosensitive. Cumulative doses of 60-66 Gy are generally required for microscopic residual disease.
 - The cavernous sinus and skull base foramina can tolerate the prescribed doses (60 Gy at 2 Gy/fx is within tolerance of CN III, IV, V, VI).
 - Special OAR attention: optic chiasm (Dmax ≤ 54 Gy), brainstem (Dmax ≤ 54 Gy), temporal lobe (Dmax ≤ 60 Gy).
+
+### 3.3 Key Clinical Principles
+
+#### R0 + Adequate Surgery → No Boost
+
+For ACC with **R0 resection + adequate surgery**, the standard postoperative dose is **60 Gy**. A boost to 66 Gy is NOT routinely indicated. The recurrence after a prior non-irradiated surgery does not by itself justify a boost — the prior recurrence occurred without any PORT, not because 60 Gy was insufficient. A boost should be reserved for:
+- R1/R2 resection
+- Named nerve invasion (Tier 1 — the cavernous sinus itself receives 60 Gy, not a separate boost to the tumor bed)
+- Gross residual disease
+
+> **BMI and nutrition status matter**: underweight patients (BMI < 18) or those with low prealbumin have reduced tolerance for late toxicity. This further argues against routine boosting in R0 cases.
+
+#### Lung Metastasis Does NOT Affect Local PORT Intensity
+
+ACC lung metastases are often indolent (median OS 5-10 years with metastases). Local control and distant control are **independent treatment goals** — the presence of lung metastases does not justify:
+- Downgrading the nerve-tracking tier (Tier 2 → Tier 3)
+- Reducing the tumor bed dose
+- Omitting prophylactic nerve pathway coverage
+
+> **Rationale**: A V2 pathway local recurrence causes facial pain, cranial neuropathy, and orbital symptoms that are far more difficult to palliate than to prevent. The patient may live years with stable lung metastases — they deserve optimal local control regardless.
 
 ---
 
@@ -304,6 +291,23 @@ Stylomastoid foramen
 | Primary → nerve | Greater and lesser palatine nerves → pterygopalatine fossa → V2 (maxillary division) → foramen rotundum → cavernous sinus |
 | Neck nodes | **No prophylactic neck RT** (above oral fissure, unless solid type) |
 
+#### V2 Pathway Dose Stratification — the Foramen Rotundum "Gate"
+
+The foramen rotundum is the anatomical gateway between the extracranial and intracranial V2 segments. Dose should be stratified at this boundary:
+
+```
+硬腭 → 腭大孔/腭小孔 → 翼腭窝 → 圆孔      60 Gy  (extracranial = surgical corridor extension)
+═══════════════ Foramen Rotundum ═══════════
+圆孔 → 海绵窦下界                           54 Gy  (intracranial = prophylactic Tier 2/3)
+```
+
+| Segment | Dose | Rationale |
+|---------|:--:|------|
+| Hard palate → pterygopalatine fossa → foramen rotundum | **60 Gy** | Direct extension of surgical bed — this is the proximal V2 pathway |
+| Foramen rotundum → inferior border of cavernous sinus | **54 Gy** | Intracranial prophylactic — Tier 2 if clinical risk factors, Tier 3 if purely prophylactic |
+
+> **Nasal cavity mucosal margin** must be included in CTV-60 for maxillectomy cases: the surgical cavity communicates directly with the nasal cavity — the mucosal cut edge is a surgical boundary. Include the ipsilateral nasal lateral wall mucosal margin + 1 cm.
+
 ### 4.4 Nasal Cavity / Paranasal Sinus ACC
 
 | Component | Target |
@@ -356,32 +360,4 @@ This skill is maintained as part of the Hermes Agent skills ecosystem, designed 
 
 ---
 
-*This clinical framework was developed through the clinical experience and published research of the
-
-
----
-
-## 附：靶区规划摘要（可复制粘贴入首次病程录）
-
-> 治疗前写入住院病史"诊疗计划"。只列实际使用的 CTV 层级，每层附理由。豁免区和加量区均说明原因。
-
-```
-═══════════════════════════════
-  放疗靶区规划
-═══════════════════════════════
-诊断：______  pT__N__M__（AJCC 第 9 版）
-分期判断：______（为何 T__ 而非 T__：______）
-手术：______
-PORT 指征：______
-降级依据：______（如适用）
-
-方案：□ 术后 PORT  □ 根治性 RT   ___ Gy / ___ fx
-
-CTV___：______（___ Gy — 理由：______）
-加量：______  ___ Gy（理由：□R1/R2  □ENE+  □手术不易切净  □T4/N3 临近关键结构）
-豁免：______（理由：______）
-
-主治：______  日期：______
-═══════════════════════════════
-
-注：四类加量指征：①R1/R2切缘 ②ENE+淋巴结 ③手术不易切净区(茎乳孔/腮腺深叶/颅底/翼腭窝/颏结节/前上门牙-鼻底硬腭) ④不手术T4/T4b临近颅底/脑膜/眼眶/颈动脉。病理切缘阴性不等于肿瘤床绝对安全——手术记录中未描述但肿瘤曾临近上述区域时仍需考虑加量。
+*This clinical framework was developed through the clinical experience and published research of the Department of Radiation Oncology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine. It is intended for educational and clinical reference purposes and should be used in conjunction with individual patient assessment and institutional guidelines.*
