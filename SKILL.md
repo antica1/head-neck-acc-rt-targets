@@ -78,7 +78,7 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 │                                                     │
 │  → Cover to the INFERIOR BORDER of the             │
 │    IPSILATERAL CAVERNOUS SINUS                     │
-│    54-56 Gy / 30 fx                                 │
+│    60 Gy / 30 fx（实操：颅外段+圆孔短段一体化60Gy）   │
 │                                                     │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
@@ -336,7 +336,7 @@ The foramen rotundum is the anatomical gateway between extracranial and intracra
 
 | Scenario | V2 extracranial + foraminal | Cavernous sinus |
 |----------|:--:|:--:|
-| **Tier 3** (no PNI, prophylactic) | 54 Gy to skull base | Not entered |
+| **Tier 3** (no PNI, prophylactic) | 54 Gy to skull base（圆孔开口/颅底入口） | Not entered |
 | **Tier 2** (clinical risk, stop at sinus border) | **60 Gy** | Not entered |
 | **Tier 1** (named nerve invasion) | 60 Gy | **60 Gy** entire sinus |
 
