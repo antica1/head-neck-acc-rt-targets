@@ -1,12 +1,9 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
-description: "Postoperative radiotherapy target volume delineation for adenoid cystic carcinoma of the head and neck, emphasizing sensory nerve pathway coverage and individualized neck node irradiation strategies."
-version: 1.1.0
+description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
+version: 1.2.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
-nmetadata:
-  hermes:
-    tags: [head-neck, radiotherapy, target-delineation]
 ---
 
 # 头颈部腺样囊性癌术后放疗靶区勾画指南
@@ -97,6 +94,18 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 └─────────────────────────────────────────────────────┘
 ```
 
+### 1.2B Contralateral Nerve Pathway Coverage — The Midline Rule
+
+> **腭部 ACC 跨中线/近中线时，对侧腭大孔→翼腭窝→圆孔必须预防照射。** 与颈淋巴结的双侧规则逻辑一致——口底/腭部的神经血管网在近中线处双侧互通。
+
+| 情形 | 同侧 | 对侧 |
+|------|------|------|
+| **硬腭偏一侧**（距中线 ≥1 cm）| 腭大孔→翼腭窝→圆孔（按 Tier 1/2/3 决定高度） | 不照 |
+| **近中线/跨中线 + PNI+** | 同上 | **至少照到圆孔开口**（Tier 2 级高度）——预防量 54 Gy |
+| **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1 级高度） | 按近中线规则，对侧仍至少到圆孔开口 |
+
+> **解剖依据**：硬腭黏膜下双侧腭大孔的神经血管在切牙孔/腭中缝处有交通支。肿瘤近中线→可通过黏膜下神经丛扩散至对侧腭大神经→对侧翼腭窝→对侧 V2→圆孔。仅照同侧会遗漏这一扩散路径。
+
 ### 1.3 Anatomical Implementation: The Trigeminal Nerve Pathway
 
 The CTV should follow the course of the relevant trigeminal branches from the primary site to the target level (cavernous sinus / skull base). Key anatomical reference points:
@@ -159,10 +168,31 @@ ACC Post-Op Neck Irradiation Decision
     │              │         │
     └──────┬───────┘         │
            │                 │
-    Irradiate          DO NOT irradiate
-    ipsilateral        prophylactic neck
-    Ib + II + III
+           │           DO NOT irradiate
+           │           prophylactic neck
+           │
+    ┌──────┴──────┐
+    │             │
+  同侧 LN-     同侧 LN+
+  (cN0/pN0)   (pN1+)
+    │             │
+    │        ┌────┴────┐
+    │        │         │
+    │   口底/舌下腺  其他口裂以下
+    │   近中线原发    部位
+    │        │         │
+    │        │         │
+    └──┬─────┘    ┌────┴────┐
+       │          │         │
+  照同侧        照同侧    照双侧
+  Ib+II+III   Ib+II+III  Ib+II+III
+  （低危，     （标危）   （高危——
+   无LN+）              口底中线+
+                        已证转移=
+                        对侧风险）
 ```
+
+> **新增规则：口底/舌下腺 + 实体型 + 同侧 LN+ → 双侧颈照射。** 舌下腺位于口底，口底是双侧淋巴引流的枢纽通道。实体型已证明具有转移能力——一旦同侧 LN+，对侧颈淋巴站通过口底血管网处于高危。此时仅照同侧是不够的。
 
 ### 2.5 Salivary Gland-Specific Considerations
 
@@ -170,7 +200,7 @@ ACC Post-Op Neck Irradiation Decision
 |-------------|------------------------|-----------|
 | **Parotid gland** | No prophylactic neck RT (unless solid type) | Lymphatic drainage from parotid is minimal |
 | **Submandibular gland** | Consider prophylactic Ib + II (even non-solid) | This is at/below the oral fissure level |
-| **Sublingual gland** | Prophylactic Ib + II (below oral fissure) | Rich lymphatic drainage |
+| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway. Midline proximity + proven metastatic capacity = contralateral nodes at risk. |
 | **Hard palate** | No prophylactic neck RT (unless solid type) | Above oral fissure, minimal lymphatic spread |
 | **Minor salivary glands (buccal, palate)** | No prophylactic neck RT (unless solid type) | Above oral fissure |
 
@@ -179,6 +209,9 @@ ACC Post-Op Neck Irradiation Decision
 ## Section 3 — Dose and Fractionation for ACC
 
 ### 3.1 Postoperative Dose Levels
+
+
+> **SBRT 后的常规分割补量**：如 ACC 首程采用 SBRT（5.5 Gy×5fx 等），需要后续常规分割补足根治剂量时，见 `reirradiation-plan-recommend` Skill §五"分割补量"。核心公式：累积 EQD2₁₀ = EQD2₁₀(SBRT) + EQD2₁₀(常规)，目标总量 ≥60 Gy。
 
 | Risk Category | Dose | Fractionation | Indication |
 |--------------|------|---------------|------------|
@@ -291,27 +324,23 @@ Stylomastoid foramen
 | Primary → nerve | Greater and lesser palatine nerves → pterygopalatine fossa → V2 (maxillary division) → foramen rotundum → cavernous sinus |
 | Neck nodes | **No prophylactic neck RT** (above oral fissure, unless solid type) |
 
-#### V2 Pathway Dose Stratification — the Foramen Rotundum "Gate"
+#### V2 Pathway Dose Stratification — Practical Rule
 
-The foramen rotundum is the anatomical gateway between the extracranial and intracranial V2 segments. However, the segment from the foramen rotundum to the inferior border of the cavernous sinus is extremely short — typically **1-2 CT slices**. Creating a separate dose level for this tiny segment adds operational complexity with negligible dosimetric benefit.
-
-**Practical rule**:
+The foramen rotundum is the anatomical gateway between extracranial and intracranial V2. However, the foraminal-intracranial transition (~3-5 mm, 1-2 CT slices) is too short to justify a separate dose level — IMRT cannot meaningfully resolve a dose gradient over this distance.
 
 ```
-硬腭 → 翼腭窝 → 圆孔 → 海绵窦下界      60 Gy  (全部颅外+圆孔短段)
+硬腭 → 翼腭窝 → 圆孔 → 海绵窦下界      60 Gy  (extracranial + foraminal segment)
 ═══════════ Cavernous Sinus ═══════════
-海绵窦内（如需进入）                     54 Gy  (仅当 Tier 1 需深入窦内时)
+海绵窦内（如需进入）                     54-60 Gy
 ```
 
-| Scenario | V2 extracranial + foraminal segment | Cavernous sinus proper |
+| Scenario | V2 extracranial + foraminal | Cavernous sinus |
 |----------|:--:|:--:|
 | **Tier 3** (no PNI, prophylactic) | 54 Gy to skull base | Not entered |
-| **Tier 2** (clinical risk, stop at sinus border) | **60 Gy** | Not entered — stop at inferior border |
-| **Tier 1** (named nerve invasion) | 60 Gy | **60 Gy** to entire cavernous sinus |
+| **Tier 2** (clinical risk, stop at sinus border) | **60 Gy** | Not entered |
+| **Tier 1** (named nerve invasion) | 60 Gy | **60 Gy** entire sinus |
 
-> **Why not split at the foramen rotundum?** The foraminal-intracranial transition is ~3-5 mm — splitting a separate CTV-54 for 1-2 slices creates a meaningless dose gradient that IMRT cannot meaningfully resolve. When Tier 2 requires stopping at the cavernous sinus border, simply carry the 60 Gy volume to that border — there is no dosimetric penalty for including the foraminal opening in the 60 Gy volume.
-
-> **Nasal cavity mucosal margin** must be included in CTV-60 for maxillectomy cases: the surgical cavity communicates directly with the nasal cavity — the mucosal cut edge is a surgical boundary. Include the ipsilateral nasal lateral wall mucosal margin + 1 cm.
+> **Nasal cavity mucosal margin** must be included in CTV-60 for maxillectomy cases: the surgical cavity communicates directly with the nasal cavity — the mucosal cut edge is a surgical boundary (+1 cm).
 
 ### 4.4 Nasal Cavity / Paranasal Sinus ACC
 
@@ -365,4 +394,32 @@ This skill is maintained as part of the Hermes Agent skills ecosystem, designed 
 
 ---
 
-*This clinical framework was developed through the clinical experience and published research of the Department of Radiation Oncology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine. It is intended for educational and clinical reference purposes and should be used in conjunction with individual patient assessment and institutional guidelines.*
+*This clinical framework was developed through the clinical experience and published research of the
+
+
+---
+
+## 附：靶区规划摘要（可复制粘贴入首次病程录）
+
+> 治疗前写入住院病史"诊疗计划"。只列实际使用的 CTV 层级，每层附理由。豁免区和加量区均说明原因。
+
+```
+═══════════════════════════════
+  放疗靶区规划
+═══════════════════════════════
+诊断：______  pT__N__M__（AJCC 第 9 版）
+分期判断：______（为何 T__ 而非 T__：______）
+手术：______
+PORT 指征：______
+降级依据：______（如适用）
+
+方案：□ 术后 PORT  □ 根治性 RT   ___ Gy / ___ fx
+
+CTV___：______（___ Gy — 理由：______）
+加量：______  ___ Gy（理由：□R1/R2  □ENE+  □手术不易切净  □T4/N3 临近关键结构）
+豁免：______（理由：______）
+
+主治：______  日期：______
+═══════════════════════════════
+
+注：四类加量指征：①R1/R2切缘 ②ENE+淋巴结 ③手术不易切净区(茎乳孔/腮腺深叶/颅底/翼腭窝/颏结节/前上门牙-鼻底硬腭) ④不手术T4/T4b临近颅底/脑膜/眼眶/颈动脉。病理切缘阴性不等于肿瘤床绝对安全——手术记录中未描述但肿瘤曾临近上述区域时仍需考虑加量。
