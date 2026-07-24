@@ -1,73 +1,21 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.4.0
+version: 1.2.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
-license: MIT
-nmetadata:
-  hermes:
-    triggers_on:
-      - 腺样囊性癌
-      - ACC
-      - 腺样囊腺癌
-      - 囊性癌
-      - 涎腺
-      - 唾液腺
-      - 腮腺ACC
-      - 颌下腺ACC
-      - 舌下腺ACC
-      - 腭部ACC
-      - 筛窦ACC
-      - 鼻腔ACC
-      - 鼻咽ACC
-      - 鼻咽腺样囊性癌
-      - adenoid cystic
-      - PNI
-      - 神经侵犯
-      - V3
-      - V2
-      - 圆孔
-      - 卵圆孔
-      - 海绵窦
-      - 三叉神经
-      - 翼腭窝
-    related_skills: [orbital-tumor-rt-targets, head-neck-dvh-plan-review, port-oral-postop]
+license: CC BY-NC-SA 4.0
 ---
+> **原创声明**：本 Skill 所含临床框架为上海交通大学医学院附属第九人民医院口腔颌面头颈肿瘤科放疗组原创知识产权。五大原创框架——间室放疗（门+隔壁）、淋巴逆流规则、QUANTEC 四维批判、口底铁律、化免新辅助后 PORT 降级三梯度——均为九院体系的组成部分。授权采用 CC BY-NC-SA 4.0（署名-非商业-相同方式共享）。引用：朱国培, 九院放疗组. 头颈肿瘤放疗靶区勾画 Skill 系列 [OL]. GitHub: antica1, 2026.
+
+
 
 # 头颈部腺样囊性癌术后放疗靶区勾画指南
-
-## 铁律清单
-
-| # | 铁律 | 触发条件 |
-|---|------|----------|
-| 1 | 感觉神经优先（三叉神经>面神经） | 所有ACC神经追踪 |
-| 2 | 三叉神经三级追踪：命名神经→全海绵窦 / 小PNI→海绵窦下界 / 无PNI→颅底 | 术后病理PNI分级 |
-| 3 | 面神经垂直段(茎乳孔)：确认侵犯→60-66Gy / 未确认→50-54Gy预防+水平段不照 | 腮腺ACC面神经管理 |
-| 4 | 实体型+口裂以下原发+同侧LN+→双侧颈 | 口底/舌下腺ACC高风险 |
-| 4b | **实体型+口裂以上原发→仍建议同侧颈预防（Ib+II+III，50-54 Gy）** | 实体型已证明转移能力，不受口裂位置限制 |
-| 5 | 腭部近中线+PNI+→对侧腭大孔→翼腭窝→圆孔 | 硬腭/软腭ACC跨中线 |
-| 5b | **鼻咽近中线+PNI+→对侧V2通路至少到圆孔开口（54 Gy预防）** | 鼻咽=中线结构，近中线PNI+不可仅照同侧 |
-| 6 | 翼腭窝增宽/神经症状→同侧圆孔内+海绵窦底 | 影像学翼腭窝异常 |
-| 7 | R0+足够手术→不常规加量至66Gy（60Gy即可） | ACC R0切除 |
-| 8 | 肺转移不降局部PORT强度 | ACC伴肺转移 |
-| 9 | 术后不用SIB（同步加量） | 所有ACC术后PORT |
 
 ## Overview
 
 Adenoid cystic carcinoma (ACC) of the head and neck is a rare salivary gland malignancy characterized by slow growth, high rates of perineural invasion, and low rates of lymphatic metastasis. Standard postoperative radiotherapy principles derived from squamous cell carcinoma do not adequately address ACC's unique biological behavior. 
 
 This guide is based on clinical experience at Shanghai Ninth People's Hospital and published work in *Radiotherapy & Oncology* and *Chinese Journal of Radiation Oncology*, combined with general consensus guidelines (ICRU 83/91, QUANTEC, RTOG/EORTC contouring atlases).
-
----
-n## 📄 报告输出——双版本
-> **出报告前必须询问：精简版（~1页，仅靶区+剂量）还是完整版（含推理+循证）。模板见 port-oral-postop。**
-
-
-## ⚠️ 影像依赖声明
-
-> **本 Skill 中的神经通路靶区边界均为基于解剖的"默认建议"。实际勾画以术前 MRI（尤其 T1+C 增强）为准——神经周围扩散的影像学证据（神经增粗、强化、圆孔/卵圆孔异常）直接决定追踪高度。AI 无法读片——报告中边界须以"建议 + 依据 + 请确认"格式输出。** 若术前 MRI 未提供神经周围侵犯的具体描述→按病理 Tier 决定追踪高度，标注"影像证据待确认"。
-
----
 
 ## Core Principle: ACC Postoperative RT is NOT SCC PORT
 
@@ -133,7 +81,7 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 │                                                     │
 │  → Cover to the INFERIOR BORDER of the             │
 │    IPSILATERAL CAVERNOUS SINUS                     │
-│    60 Gy / 30 fx（实操：颅外段+圆孔短段一体化60Gy）   │
+│    54-56 Gy / 30 fx                                 │
 │                                                     │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
@@ -160,20 +108,6 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 | **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1 级高度） | 按近中线规则，对侧仍至少到圆孔开口 |
 
 > **解剖依据**：硬腭黏膜下双侧腭大孔的神经血管在切牙孔/腭中缝处有交通支。肿瘤近中线→可通过黏膜下神经丛扩散至对侧腭大神经→对侧翼腭窝→对侧 V2→圆孔。仅照同侧会遗漏这一扩散路径。
-
-### 1.2C Nasopharyngeal ACC — Bilateral Nerve Pathway Rule
-
-> **鼻咽是中线结构。** 鼻咽顶壁/后壁 ACC 近中线时，即使无明确对侧侵犯证据，PNI+ 也意味着肿瘤已进入双侧 V2 的交通神经丛。
-
-| 情形 | 同侧 V2 通路 | 对侧 V2 通路 |
-|------|------------|------------|
-| **鼻咽偏一侧**（距中线 ≥1 cm）+ 无 PNI | Tier 2/3（按病理分级）| 不照 |
-| **鼻咽近中线/跨中线 + PNI+** | 按 Tier 1/2 追踪至海绵窦 | **至少到圆孔开口**——预防量 54 Gy |
-| **翼腭窝增宽 / 同侧神经症状** | 圆孔内 + 海绵窦底（Tier 1） | 对侧至少到圆孔开口（54 Gy）——可双侧海绵窦均需考虑 |
-
-> **解剖依据**：鼻咽顶壁黏膜下的双侧咽神经丛（来自 V2 的咽支）在中线处有丰富的交通支。鼻咽黏膜下淋巴-神经丛是 NPC 双侧扩散的解剖基础——同样的神经通路对 ACC 的双侧 PNI 扩散同样适用。仅照同侧 V2 通路相当于将 NP 当偏侧器官处理——这在解剖学上是错误的。
-
-> **剂量梯度**：同侧 V2 通路由病理 Tier 决定剂量（60-66 Gy），对侧 V2 通路原则上可以比同侧低一档（54 Gy）。但如果术前 MRI 已见对侧翼腭窝异常或对侧圆孔可疑 → 对侧也不应低于 60 Gy。
 
 ### 1.3 Anatomical Implementation: The Trigeminal Nerve Pathway
 
@@ -207,11 +141,9 @@ The following situations warrant prophylactic ipsilateral neck irradiation (Ib +
 
 | Indication | Rationale |
 |-----------|-----------|
-| **Solid-type ACC histology** | Solid subtype has higher aggression and metastatic potential — **irrespective of primary site (above or below oral fissure)** |
+| **Solid-type ACC histology** | Solid subtype has higher aggression and metastatic potential |
 | **Primary site BELOW the oral fissure** (tongue, floor of mouth, submandibular gland, sublingual gland) | These sites have richer lymphatic drainage |
 | **Known pathological lymph node involvement** | Standard surgical bed coverage |
-
-> **新增（v1.4.0）**：实体型 ACC 口裂以上原发（鼻咽、鼻腔、筛窦、硬腭、腮腺）仍建议同侧 Ib+II+III 预防照射 50-54 Gy。实体型已证明转移能力——口裂位置是 SCC 的风险分层工具，对 ACC 不适用。
 
 ### 2.3 When NOT to Irradiate the Neck
 
@@ -236,19 +168,12 @@ ACC Post-Op Neck Irradiation Decision
     │         Below oral  Above oral
     │          fissure     fissure
     │              │         │
-    │              │    DO NOT irradiate
-    │              │    prophylactic neck
-    │              │
-    ┌──┴──────────────┐
-    │                 │
-  Below oral      Above oral
-   fissure          fissure
-    │                 │
-    │            ⚠️ 照同侧 Ib+II+III
-    │            （50-54 Gy）
-    │            实体型已证明转移能力
-    │            → 不受口裂位置限制
-    │
+    │              │         │
+    └──────┬───────┘         │
+           │                 │
+           │           DO NOT irradiate
+           │           prophylactic neck
+           │
     ┌──────┴──────┐
     │             │
   同侧 LN-     同侧 LN+
@@ -276,10 +201,9 @@ ACC Post-Op Neck Irradiation Decision
 
 | Primary Site | Typical Neck Management | Rationale |
 |-------------|------------------------|-----------|
-| **Parotid gland** | **No prophylactic neck RT** (unless solid type — solid type always warrants neck RT irrespective of site) | Lymphatic drainage from parotid is minimal |
+| **Parotid gland** | No prophylactic neck RT (unless solid type) | Lymphatic drainage from parotid is minimal |
 | **Submandibular gland** | Consider prophylactic Ib + II (even non-solid) | This is at/below the oral fissure level |
-| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway |
-| **Nasopharynx** | **No prophylactic neck RT** (unless solid type). PNI+ → bilateral V2 nerve pathway (§1.2C). | NP is above oral fissure + rich Waldeyer drainage → but ACC lymphatic tropism is low |
+| **Sublingual gland** | Prophylactic Ib + II (below oral fissure, rich lymphatic drainage). **If solid type + ipsilateral LN+ → bilateral neck.** | Sublingual gland = floor of mouth → bilateral lymphatic highway. Midline proximity + proven metastatic capacity = contralateral nodes at risk. |
 | **Hard palate** | No prophylactic neck RT (unless solid type) | Above oral fissure, minimal lymphatic spread |
 | **Minor salivary glands (buccal, palate)** | No prophylactic neck RT (unless solid type) | Above oral fissure |
 
@@ -305,26 +229,6 @@ ACC Post-Op Neck Irradiation Decision
 - ACC is moderately radiosensitive. Cumulative doses of 60-66 Gy are generally required for microscopic residual disease.
 - The cavernous sinus and skull base foramina can tolerate the prescribed doses (60 Gy at 2 Gy/fx is within tolerance of CN III, IV, V, VI).
 - Special OAR attention: optic chiasm (Dmax ≤ 54 Gy), brainstem (Dmax ≤ 54 Gy), temporal lobe (Dmax ≤ 60 Gy).
-
-### 3.3 Key Clinical Principles
-
-#### R0 + Adequate Surgery → No Boost
-
-For ACC with **R0 resection + adequate surgery**, the standard postoperative dose is **60 Gy**. A boost to 66 Gy is NOT routinely indicated. The recurrence after a prior non-irradiated surgery does not by itself justify a boost — the prior recurrence occurred without any PORT, not because 60 Gy was insufficient. A boost should be reserved for:
-- R1/R2 resection
-- Named nerve invasion (Tier 1 — the cavernous sinus itself receives 60 Gy, not a separate boost to the tumor bed)
-- Gross residual disease
-
-> **BMI and nutrition status matter**: underweight patients (BMI < 18) or those with low prealbumin have reduced tolerance for late toxicity. This further argues against routine boosting in R0 cases.
-
-#### Lung Metastasis Does NOT Affect Local PORT Intensity
-
-ACC lung metastases are often indolent (median OS 5-10 years with metastases). Local control and distant control are **independent treatment goals** — the presence of lung metastases does not justify:
-- Downgrading the nerve-tracking tier (Tier 2 → Tier 3)
-- Reducing the tumor bed dose
-- Omitting prophylactic nerve pathway coverage
-
-> **Rationale**: A V2 pathway local recurrence causes facial pain, cranial neuropathy, and orbital symptoms that are far more difficult to palliate than to prevent. The patient may live years with stable lung metastases — they deserve optimal local control regardless.
 
 ---
 
@@ -402,24 +306,6 @@ Stylomastoid foramen
 |-----------|--------|
 | Primary → nerve | Greater and lesser palatine nerves → pterygopalatine fossa → V2 (maxillary division) → foramen rotundum → cavernous sinus |
 | Neck nodes | **No prophylactic neck RT** (above oral fissure, unless solid type) |
-
-#### V2 Pathway Dose Stratification — Practical Rule
-
-The foramen rotundum is the anatomical gateway between extracranial and intracranial V2. However, the foraminal-intracranial transition (~3-5 mm, 1-2 CT slices) is too short to justify a separate dose level — IMRT cannot meaningfully resolve a dose gradient over this distance.
-
-```
-硬腭 → 翼腭窝 → 圆孔 → 海绵窦下界      60 Gy  (extracranial + foraminal segment)
-═══════════ Cavernous Sinus ═══════════
-海绵窦内（如需进入）                     54-60 Gy
-```
-
-| Scenario | V2 extracranial + foraminal | Cavernous sinus |
-|----------|:--:|:--:|
-| **Tier 3** (no PNI, prophylactic) | 54 Gy to skull base（圆孔开口/颅底入口） | Not entered |
-| **Tier 2** (clinical risk, stop at sinus border) | **60 Gy** | Not entered |
-| **Tier 1** (named nerve invasion) | 60 Gy | **60 Gy** entire sinus |
-
-> **Nasal cavity mucosal margin** must be included in CTV-60 for maxillectomy cases: the surgical cavity communicates directly with the nasal cavity — the mucosal cut edge is a surgical boundary (+1 cm).
 
 ### 4.4 Nasal Cavity / Paranasal Sinus ACC
 
