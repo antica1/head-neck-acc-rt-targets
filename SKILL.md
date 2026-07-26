@@ -85,6 +85,23 @@ Based on postoperative pathology, ACC falls into one of three tiers dictating ho
 │                                                     │
 ├─────────────────────────────────────────────────────┤
 │                                                     │
+│  TIER 2B: INTRANEURAL vs PERINEURAL INVASION       │
+│  ┌─────────────────────────────────────────────┐   │
+│  │ PNI has TWO histological subtypes:          │   │
+│  │ · Perineural: tumor surrounds nerve,        │   │
+│  │   doesn't penetrate epineurium              │   │
+│  │ · INTRANEURAL: tumor IS INSIDE the nerve    │   │
+│  │   (within epineurium/perineurium)           │   │
+│  └─────────────────────────────────────────────┘   │
+│                                                     │
+│  → INTRANEURAL invasion → upgrade to Tier 1       │
+│    (cover entire cavernous sinus, 60 Gy)           │
+│    Evidence: intraneural PNI carries worse         │
+│    prognosis than perineural only (Teymoortash     │
+│    Histopathology 2014; 朱奕 中国癌症杂志 2016)    │
+│                                                     │
+├─────────────────────────────────────────────────────┤
+│                                                     │
 │  TIER 3: NO NEURAL INVASION                         │
 │  ┌─────────────────────────────────────────────┐   │
 │  │ No PNI detected on pathology                │   │
@@ -328,6 +345,30 @@ Since ACC RT often extends to the skull base and cavernous sinus, special attent
 | **Pituitary/hypothalamus** | Dmean ≤ 45 Gy | Endocrine function |
 | **Cochlea** | Dmean ≤ 45 Gy | |
 | **Lacrimal gland** | Dmean ≤ 30 Gy | V1 pathway proximity |
+
+## Section 5.5 — Sinonasal ACC: A Distinct Entity
+
+> 鼻腔鼻窦 ACC 不同于唾液腺 ACC——实体型占比更高、PNI 通路更复杂、手术更难 R0。九院 104 例临床分析（朱奕 2016）。
+
+| 特征 | 唾液腺 ACC | 鼻腔鼻窦 ACC |
+|------|----------|------------|
+| **实体型占比** | 较低 | 🔥 **更高**→侵袭性更强 |
+| **PNI 通路** | V3（腮腺）、V2（腭部） | 🔥 **V2+V3+翼管神经**——翼腭窝是关键结构 |
+| **手术** | 腮腺切除±面神经 | 🔥 **内镜手术复发率可能低于开放**（17.8% vs 38.5%，Meccariello 2016） |
+| **切缘阳性** | 影响预后 | ⚠️ 九院数据——对 OS/DFS 无显著影响（跳跃性 PNI 是原因）→更强调 PORT |
+| **颈部** | 实体型+口裂以下才照 | ⚠️ 不常规做颈清扫（LN 转移不常见），但中晚期/鼻咽侵犯/分化差时需讨论 |
+| **剂量** | 60-66 Gy（术后） | 同——多处切缘阳性/软组织受侵→**66 Gy** |
+| **化疗** | 无标准方案 | ⚠️ **CAP 方案**（顺铂+多柔比星+环磷酰胺）→晚期/复发/转移 |
+
+> **参考**：朱奕, 等. 104例鼻腔鼻窦腺样囊性癌临床分析. 中国癌症杂志 2016;26(03):268-275.
+
+### Section 5.6 — CAP Chemotherapy for Advanced ACC
+
+| 方案 | 剂量 |
+|------|------|
+| **CAP** | 顺铂 50-80 mg/m² d1 + 多柔比星 40-60 mg/m² d1 + 环磷酰胺 400-600 mg/m² d1，q3-4w |
+| **适应证** | 快速生长、症状明显、不可切除、复发、远处转移的 ACC |
+| **同步 CRT** | 术后同步 CRT 可能提高局控率——但缺乏大样本 RCT |
 
 ---
 
