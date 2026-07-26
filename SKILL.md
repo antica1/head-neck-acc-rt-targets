@@ -348,7 +348,7 @@ Since ACC RT often extends to the skull base and cavernous sinus, special attent
 
 ## Section 5.5 — Sinonasal ACC: A Distinct Entity
 
-> 鼻腔鼻窦 ACC 不同于唾液腺 ACC——实体型占比更高、PNI 通路更复杂、手术更难 R0。九院 104 例临床分析（朱奕 2016）。
+> 鼻腔鼻窦 ACC 不同于唾液腺 ACC——实体型占比更高、PNI 通路更复杂、手术更难 R0。朱奕 104 例临床分析（复旦大学附属眼耳鼻喉科医院，中国癌症杂志 2016）。
 
 | 特征 | 唾液腺 ACC | 鼻腔鼻窦 ACC |
 |------|----------|------------|
