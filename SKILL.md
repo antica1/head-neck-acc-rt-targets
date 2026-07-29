@@ -1,5 +1,5 @@
 ---
-name: adenoid-cystic-carcinoma-rt-targets
+name: head-neck-acc-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
 version: 1.5.1
 author: Zhu Guopei / Shanghai Ninth People's Hospital
@@ -400,7 +400,7 @@ This skill is maintained as part of the Hermes Agent skills ecosystem, designed 
 
 ---
 
-*This clinical framework was developed through the clinical experience and published research of the Department of Radiation Oncology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine.*
+*This clinical framework was developed through the clinical experience and published research of the
 
 
 ---
