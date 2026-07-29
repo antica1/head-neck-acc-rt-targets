@@ -400,7 +400,7 @@ This skill is maintained as part of the Hermes Agent skills ecosystem, designed 
 
 ---
 
-*This clinical framework was developed through the clinical experience and published research of the
+*This clinical framework was developed through the clinical experience and published research of the Department of Radiation Oncology, Shanghai Ninth People's Hospital, Shanghai Jiao Tong University School of Medicine.*
 
 
 ---
