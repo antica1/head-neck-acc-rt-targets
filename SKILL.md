@@ -1,7 +1,7 @@
 ---
 name: adenoid-cystic-carcinoma-rt-targets
 description: "腺样囊性癌ACC术后放疗靶区勾画——面神经径路/颅底孔道、PNI追踪。Postoperative RT for adenoid cystic carcinoma — nerve pathway coverage, skull base foramen."
-version: 1.5.1
+version: 1.6.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: CC BY-NC-SA 4.0
 ---
@@ -241,7 +241,23 @@ ACC Post-Op Neck Irradiation Decision
 | **Neural pathway prophylaxis (Tier 3)** | 50-54 Gy | 1.67-1.8 Gy × 30 fx | Prophylactic along nerve |
 | **Neck prophylaxis (if indicated)** | 50-54 Gy | 1.67-1.8 Gy × 30 fx | Prophylactic neck |
 
-### 3.2 Dose Considerations for ACC
+### 3.2 骨寡转移 SBRT 剂量（2026-08 飞书经验，窦圣金）
+
+> 转移性 ACC 单发骨寡转移（oligometastasis）——SBRT 根治性局部处理。BED₁₀ 目标 ≥48-60 Gy。
+
+| 病灶部位 | 推荐方案 | 说明 |
+|---------|---------|------|
+| 四肢/肋骨/骨盆等外周骨 | **30 Gy/3fx**（10 Gy×3） | BED₁₀=60 Gy |
+| 脊柱（椎体/椎旁） | **30 Gy/5fx**（6 Gy×5） | 降低脊髓 Dmax，BED₁₀=48 Gy |
+| 脊柱紧贴脊髓（<3mm） | 27 Gy/3fx 或 24 Gy/2fx | 脊髓 Dmax 目标 ≤14-15 Gy/次 |
+| 颅骨/眼眶等头颈骨 | **30-35 Gy/5fx** | 视神经、晶状体保护优先 |
+
+- 脊髓限量（3fx）：Dmax≤22.5 Gy、<0.35cc≤15.9 Gy；（5fx）：Dmax≤28 Gy、<0.35cc≤22 Gy
+- GTV=MRI T1/T2 融合骨病灶+骨外软组织；CTV=GTV+3-5mm（不越骨皮质）；PTV=+3mm
+- ⚠️ BED₃>130 Gy 时 ORN/椎体压缩风险——倾向 30-35 Gy/5fx 而非更高单次量
+- 详见 `reirradiation-plan-recommend` Skill §五
+
+### 3.3 Dose Considerations for ACC
 
 - ACC is moderately radiosensitive. Cumulative doses of 60-66 Gy are generally required for microscopic residual disease.
 - The cavernous sinus and skull base foramina can tolerate the prescribed doses (60 Gy at 2 Gy/fx is within tolerance of CN III, IV, V, VI).
